@@ -18,11 +18,11 @@
 -->
 
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
-    <parent>
+    <!--parent>
         <groupId>net.java</groupId>
         <artifactId>jvnet-parent</artifactId>
         <version>1</version>
-    </parent>
+    </parent-->
     <modelVersion>4.0.0</modelVersion>
     <groupId>org.glassfish.grizzly</groupId>
     <artifactId>grizzly-thrift</artifactId>
@@ -57,12 +57,22 @@
         </license>
     </licenses>
     <scm>
-        <connection>scm:git:https://github.com/javaee/grizzly-thrift.git</connection>
+        <connection>scm:git:https://github.com/anajosep/grizzly-thrift.git</connection>
         <developerConnection>
-            scm:git:git@github.com:javaee/grizzly-thrift.git
+            scm:git:git@github.com:anajosep/grizzly-thrift.git
         </developerConnection>
-        <url>https://github.com/javaee/grizzly-thrift</url>
+        <url>https://github.com/anajosep/grizzly-thrift</url>
     </scm>
+    <distributionManagement>
+        <snapshotRepository>
+           <id>repo.eclipse.org</id>
+            <url>https://repo.eclipse.org/content/repositories/dummy-ee4j/</url>
+        </snapshotRepository>
+        <repository>
+            <id>repo.eclipse.org</id>
+           <url>https://repo.eclipse.org/content/repositories/dummy-ee4j/</url>
+       </repository>
+    </distributionManagement>
     <organization>
         <name>Oracle Corporation</name>
         <url>http://www.oracle.com</url>
@@ -210,6 +220,11 @@
                     </archive>
                 </configuration>
             </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-gpg-plugin</artifactId>
+                <version>1.6</version>
+            </plugin>
         </plugins>
     </build>
     <profiles>
@@ -218,7 +233,7 @@
             <activation>
                 <property>
                     <name>performRelease</name>
-                    <value>true</value>
+                    <value>false</value>
                 </property>
             </activation>
             <build>
